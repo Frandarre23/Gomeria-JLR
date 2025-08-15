@@ -24,6 +24,7 @@ footer {
 
   .social-icons {
     margin-top: 1rem;
+    gap: 20px;
 
     a {
       font-size: 1.5rem;
@@ -33,6 +34,12 @@ footer {
 
       &:hover {
         color: $color-red-bright;
+      }
+
+      .payment-icon {
+        width: 180px;
+        height: auto;
+        object-fit: contain; // Mantiene proporción
       }
     }
   }

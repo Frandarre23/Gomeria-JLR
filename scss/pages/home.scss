@@ -1,55 +1,56 @@
 // Home
 
 .icon-box {
-    background: $color-white;
+  background: $color-white;
+  @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+
+  &:hover {
     @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    cursor: default;
+    transform: translateY(-5px);
+  }
 
-    &:hover {
-        @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
-        transform: translateY(-5px);
-    }
+  h5 {
+    color: $color-dark;
+    font-weight: 700;
+  }
 
-    h5 {
-        color: $color-dark;
-        font-weight: 700;
-    }
+  p {
+    color: $color-dark;
+  }
 
-    p {
-        color: $color-dark;
-    }
-
-    .icon {
-        font-size: 3rem;
-    }
+  .icon {
+    font-size: 3rem;
+  }
 }
 
 // Historia
 
-.historia-section {
-  padding: 5rem 0;
-  background-color: $color-gray;
+.historia {
+  padding: 3rem 0;
+  background-color: $color-light-gray;
 
-  .historia-contenedor {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+  .contenedor {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(1, 100%);
+    gap: 20px;
 
-    .historia-foto {
-      flex: 1 1 40%;
-      
+    .foto {
+      grid-column: 1;
+
+
       img {
-        width: 100%;
+        width: 400px;
         height: auto;
         border-radius: 1rem;
-        object-fit: cover;
       }
     }
 
-    .historia-texto {
-      flex: 1 1 55%;
+    .texto {
+      grid-column: 2;
+      align-content: flex-start;
 
       h3 {
         font-size: 2rem;
@@ -59,7 +60,44 @@
       p {
         font-size: 1.1rem;
         line-height: 1.6;
-        color: #161a1d;
+        color: $color-dark;
+      }
+    }
+  }
+}
+
+
+.action {
+  @include card-style($color: #fff, $padding: 20px, $border-radius: 12px, $shadow: 0 4px 8px rgba(0, 0, 0, 0.1));
+  background-color: $color-red-dark;
+  backdrop-filter: blur(30px);
+  max-width: 90%;   
+  margin: 2rem auto;
+  padding: 2rem;   
+
+  .contened {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .texto {
+  
+      text-align: center;
+      color: $color-white;
+
+      h2 {
+        color: $color-red-dark;
+        font-weight: bold;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
       }
     }
   }

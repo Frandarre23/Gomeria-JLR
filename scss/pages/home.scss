@@ -29,27 +29,27 @@
 
 .historia-section {
   padding: 5rem 0;
-  background-color: #f5f3f4; // color claro de fondo
+  background-color: $color-gray;
 
-  .historia-row {
+  .historia-contenedor {
     display: flex;
     align-items: center;
-    flex-wrap: wrap; // para que sea responsivo
+    gap: 2rem;
+    flex-wrap: wrap;
 
     .historia-foto {
       flex: 1 1 40%;
-      padding-right: 2rem;
-
+      
       img {
         width: 100%;
         height: auto;
-        border-radius: 1rem; // opcional, bordes redondeados
+        border-radius: 1rem;
         object-fit: cover;
       }
     }
 
     .historia-texto {
-      flex: 1 1 60%;
+      flex: 1 1 55%;
 
       h3 {
         font-size: 2rem;

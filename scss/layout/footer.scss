@@ -1,0 +1,39 @@
+footer {
+  background-color: $color-dark;
+  color: $color-light;
+  padding: 2rem 0;
+  font-family: $font-primary;
+  font-size: 0.9rem;
+  text-align: center;
+
+  nav {
+    margin-top: 0.5rem;
+
+    a {
+      color: $color-light-gray;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-red-bright;
+        text-shadow: 0 0 5px $color-red-bright;
+      }
+    }
+  }
+
+  .social-icons {
+    margin-top: 1rem;
+
+    a {
+      font-size: 1.5rem;
+      color: $color-light-gray;
+      margin: 0 0.75rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-red-bright;
+      }
+    }
+  }
+}

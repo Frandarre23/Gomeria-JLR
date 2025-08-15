@@ -1,0 +1,57 @@
+.testimonial {
+
+    background-color: white;
+    padding: 5rem 0;
+    overflow: visible !important;
+
+    .carousel-inner {
+        overflow: visible !important;
+    }
+
+    .carousel-item {
+        .card {
+            background-color: $color-black;
+            border-radius: 1rem;
+            color: $color-white;
+            @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.5));
+            padding: 2rem;
+            max-width: 500px;
+            height: 300px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; // Foto arriba, texto medio, estrellas abajo
+            align-items: center;
+            text-align: center;
+        }
+
+        .user-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+
+        p {
+            display: flex;
+            flex: 1;
+            align-content: center;
+            font-style: italic;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            font-size: 1.5rem;
+            align-content: flex-end;
+            color: $color-red-bright;
+        }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(1);
+    }
+}

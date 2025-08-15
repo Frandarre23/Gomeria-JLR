@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLR Gomería</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">JLR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/service.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/products.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/politics.html">Politicas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Headline -->
+    <section class="headline">
+        <div class="container">
+            <h1>JLR</h1>
+            <p class="lead">gomeria de zona sur</p>
+            <a href="./pages/createAccount.html" class="btn btn-danger mt-3">Crear cuenta</a>
+        </div>
+    </section>
+
+    <!-- Lo que hacemos -->
+    <section class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-4">Lo que hacemos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="icon-box p-4 border rounded shadow-sm">
+                        <div class="icon mb-3">📦</div>
+                        <h5>Envios</h5>
+                        <p>Descripción de lo que hacemos</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-box p-4 border rounded shadow-sm">
+                        <div class="icon mb-3">🔧</div>
+                        <h5>Neumaticos</h5>
+                        <p>Descripción de lo que hacemos</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-box p-4 border rounded shadow-sm">
+                        <div class="icon mb-3">🚗</div>
+                        <h5>Revision</h5>
+                        <p>Descripción de lo que hacemos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonialas -->
+    <section class="testimonial">
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="card text-center">
+                        <img src="./images/persona 1.jpg" alt="Foto usuario1" class="user-photo">
+                        <p>"Excelente atención y rapidez en el servicio"</p>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card text-center">
+                        <img src="./images/persona 2.jpg" alt="Foto usuario2" class="user-photo">
+                        <p>"Volvería sin dudarlo, muy profesionales"</p>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card text-center">
+                        <img src="./images/persona3.jpg" alt="Foto usuario3" class="user-photo">
+                        <p>"Precios justos y trabajo impecable"</p>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="service-box p-3 border rounded">🚗 Cambio de neumáticos</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-box p-3 border rounded">🔧 Balanceo</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-box p-3 border rounded">🛠 Alineación</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-box p-3 border rounded">⚙ Reparación</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section id="historia" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="foto">
+                        <img src="./images/gomeriaHisto.jpg" alt="foto de gomeria">
+                    </div>
+                </div>
+                <div class="text col-md-7">
+                    <h3>Historia</h3>
+                    <p>Texto de historia de la empresa, contando su trayectoria y valores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold">Headline</h2>
+            <p>Algo motivante para que creen la cuenta</p>
+            <a href="#" class="btn btn-danger">Crear cuenta</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-custom text-white py-4" id="contacto">
+        <div class="container text-center">
+            <p>© 2025 JLR Gomería</p>
+            <nav>
+                <a href="index.html" class="text-white mx-2">Inicio</a> |
+                <a href="./pages/service.html" class="text-white mx-2">Servicios</a> |
+                <a href="./pages/products.html" class="text-white mx-2">Productos</a> |
+                <a href="./pages/politics.html" class="text-white mx-2">Políticas</a> |
+                <a href="./pages/contact.html" class="text-white mx-2">Contacto</a>
+            </nav>
+            <div class="social-icons mt-3">
+                <a href="#" class="text-white mx-2">👍</a>
+                <a href="#" class="text-white mx-2">🐦</a>
+                <a href="#" class="text-white mx-2">📸</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

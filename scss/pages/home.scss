@@ -1,0 +1,48 @@
+// Home
+
+.icon-box {
+    background: $color-white;
+    @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+
+    &:hover {
+        @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
+        transform: translateY(-5px);
+    }
+
+    h5 {
+        color: $color-dark;
+        font-weight: 700;
+    }
+
+    p {
+        color: $color-dark;
+    }
+
+    .icon {
+        font-size: 3rem;
+    }
+}
+
+// Historia
+
+.container {
+
+    .text {
+
+        h3 {
+            display: flex;
+            flex: 3;
+            align-items: end;
+            align-content: end;
+        }
+
+        p {
+            display: flex;
+            flex: 3;
+            align-items: end;
+            align-content: end;
+        }
+    }
+}

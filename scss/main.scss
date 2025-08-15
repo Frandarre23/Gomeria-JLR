@@ -1,0 +1,24 @@
+// Abstractos
+@import "abstracts/variables.scss";
+@import "abstracts/mixins.scss";
+
+// Base
+@import "base/reset.scss";
+@import "base/typography.scss";
+
+// Layout
+@import "layout/header.scss";
+@import "layout/footer.scss";
+@import "layout/forms.scss";
+
+// Pages 
+@import "pages/contact.scss";
+@import "pages/home.scss";
+@import "pages/products.scss";
+@import "pages/services.scss";
+
+// Componentes
+@import "components/buttons.scss";
+@import "components/cards.scss";
+@import "components/headline.scss";
+@import "components/testimonials.scss";

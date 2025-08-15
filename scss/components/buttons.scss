@@ -1,0 +1,13 @@
+.btn-danger {
+  background-color: $color-red-main;
+  border: none;
+  font-weight: 700;
+  font-family: $font-primary;
+  @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $color-red-bright;
+    box-shadow: 0 0 15px $color-red-bright;
+  }
+}

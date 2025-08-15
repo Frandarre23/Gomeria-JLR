@@ -1,0 +1,53 @@
+form {
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0 auto;
+  font-family: $font-primary;
+  color: $color-dark;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid $color-gray;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-red-main;
+      box-shadow: 0 0 8px $color-red-light;
+      background-color: $color-light;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    margin-top: 1rem;
+    background-color: $color-red-main;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    color: $color-light;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      background-color: $color-red-bright;
+      box-shadow: 0 0 12px $color-red-bright;
+    }
+  }
+}

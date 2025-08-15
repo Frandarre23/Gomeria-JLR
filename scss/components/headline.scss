@@ -1,0 +1,56 @@
+.headline {
+  position: relative;
+  background-image: url("../images/Heroimg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-white;
+
+  // Overlay con transparencia
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); // negro al 50% de opacidad
+  }
+
+  .container {
+    position: relative; // para que el texto quede arriba del overlay
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1;
+
+    h1 {
+      color: $color-red-dark;
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: $color-red-main;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $color-red-bright;
+      }
+    }
+  }
+}

@@ -33,19 +33,21 @@
 
   .contenedor {
     display: grid;
+    max-width: 100%;
+    padding: 0 1rem;
+    overflow-x: hidden;
     grid-template-columns: 50% 50%;
     grid-template-rows: repeat(1, 100%);
     gap: 20px;
 
     .foto {
-      grid-column: 1;
-
 
       img {
-        width: 400px;
+        width: 100%; // que se adapte al ancho del contenedor
         height: auto;
         border-radius: 1rem;
       }
+      
     }
 
     .texto {
@@ -66,6 +68,7 @@
   }
 }
 
+// Call to action
 
 .action {
   @include card-style($color: #fff, $padding: 20px, $border-radius: 12px, $shadow: 0 4px 8px rgba(0, 0, 0, 0.1));

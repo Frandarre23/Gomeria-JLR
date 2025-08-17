@@ -1,48 +1,42 @@
-// Servicios page
 .servicios {
-  padding: 13rem 0;
-  background-color: $color-light-gray;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 
-  &__titulo {
+  .titulo {
     text-align: center;
-    font-size: 2.5rem;
-    font-family: $font-primary;
-    font-weight: 900;
-    color: $color-red-main;
-    margin-bottom: 3rem;
-    @include fade-in-up($duration: 0.6s, $distance: 20px, $timing: ease-out);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: $color-red-dark;
   }
 
-  &__grid {
+  .servicios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    padding: 0 1rem;
-  }
-}
-
-.servicio-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
-  @include fade-in-up($duration: 0.6s, $distance: 20px, $timing: ease-out);
-
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: $color-dark;
   }
 
-  p {
-    font-size: 1rem;
-    color: $color-gray;
-  }
+  .servicio-card {
+    @include card-style($color: #000000, $padding: 1.5rem, $border-radius: 1rem, $shadow: 0 4px 8px rgba(0, 0, 0, 0.1));
+    background: $color-dark;
+    color: $color-white;
+    text-align: center;
+    @include transition(transform 0.3s ease, box-shadow 0.3s ease);
 
-  &:hover {
-    transform: translateY(-5px);
-    @include box-shadow($horizontal: 0, $vertical: 4px, $blur: 12px, $color: rgba(0, 0, 0, 0.1));
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: $color-red-bright;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      @include box-shadow(0 6px 15px rgba(0, 0, 0, 0.3));
+    }
   }
 }

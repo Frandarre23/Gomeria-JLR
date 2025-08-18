@@ -1,6 +1,5 @@
 .servicios {
   padding: 2rem;
-  max-width: 1200px;
   margin: 0 auto;
 
   .titulo {
@@ -17,11 +16,9 @@
   }
 
   .servicio-card {
-    @include card-style($color: #000000, $padding: 1.5rem, $border-radius: 1rem, $shadow: 0 4px 8px rgba(0, 0, 0, 0.1));
-    background: $color-dark;
+    @include card-style($color: #000000, $padding: 1.5rem, $border-radius: 1rem, $shadow: 0 20px 16px 13px rgba(255, 0, 0, 0.1));
     color: $color-white;
     text-align: center;
-    @include transition(transform 0.3s ease, box-shadow 0.3s ease);
 
     h3 {
       font-size: 1.3rem;

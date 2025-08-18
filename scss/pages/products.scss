@@ -1,0 +1,63 @@
+// Productos
+
+.productos {
+  padding: 2rem;
+  background-color: $color-light-gray;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $color-dark;
+    text-align: center;
+  }
+
+  .buscador {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    input {
+      padding: 0.8rem 1rem;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid $color-dark;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      outline: none;
+
+      &:focus {
+        border-color: $color-red-main; // ejemplo si usás rojo de tu paleta
+        @include box-shadow (0 0 5px rgba(0, 0, 0, 0.1));
+      }
+    }
+  }
+
+  .lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+    .producto {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      @include box-shadow (0 4px 6px rgba(0, 0, 0, 0.1));
+      text-align: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: $color-dark;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $color-gray;
+      }
+    }
+  }
+}

@@ -1,63 +1,83 @@
 // Productos
 
 .productos {
-  padding: 2rem;
-  background-color: $color-light-gray;
+    padding: 40px 20px;
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: $color-dark;
-    text-align: center;
-  }
-
-  .buscador {
-    text-align: center;
-    margin-bottom: 2rem;
-
-    input {
-      padding: 0.8rem 1rem;
-      width: 100%;
-      max-width: 400px;
-      border: 1px solid $color-dark;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      outline: none;
-
-      &:focus {
-        border-color: $color-red-main; // ejemplo si usás rojo de tu paleta
-        @include box-shadow (0 0 5px rgba(0, 0, 0, 0.1));
-      }
+    .content {
+        max-width: 100%;
+        margin: 0 auto;
     }
-  }
 
-  .lista-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-
-    .producto {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      @include box-shadow (0 4px 6px rgba(0, 0, 0, 0.1));
-      text-align: center;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-      }
-
-      h2 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
+    h1 {
+        margin-bottom: 24px;
+        font-size: 2rem;
         color: $color-dark;
-      }
-
-      p {
-        font-size: 1rem;
-        color: $color-gray;
-      }
     }
-  }
+
+    .filtros {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+
+        input,
+        select {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid $color-light-gray;
+            font-size: 1rem;
+            flex: 1 1 150px;
+            background-color: $color-white;
+            color: $color-black;
+            @include transition(all, 0.3s);
+
+            &:focus {
+                outline: none;
+                border-color: $color-red-bright;
+            }
+        }
+
+        button {
+            $nombre-color: $color-red-bright !global; // Para usar en tu mixin
+            @include button-style();
+            flex: 0 0 120px;
+        }
+    }
+
+    #resultCount {
+        display: block;
+        margin-bottom: 16px;
+        font-weight: bold;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+
+        .product-card {
+            @include card-style($color: $color-white, $padding: 0px, $border-radius: 12px);
+            text-align: center;
+
+            img {
+                max-width: 100%;
+                border-radius: 8px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+                margin: 12px 0;
+                color: $color-dark;
+            }
+
+            p {
+                margin: 6px 0;
+            }
+
+            button {
+                color: $color-red-bright;
+                @include button-style();
+                margin-top: 10px;
+            }
+        }
+    }
 }

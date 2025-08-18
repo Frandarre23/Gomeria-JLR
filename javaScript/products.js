@@ -15,19 +15,15 @@ const rimFromSize = size => parseInt(size.split("R")[1]);
 // Render de productos
 function cardHTML(p){
   return `
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="${p.img}" class="card-img-top" alt="${p.model}">
-        <div class="card-body">
-          <h5 class="card-title">${p.brand} ${p.model}</h5>
-          <p class="card-text">
-            <strong>Medida:</strong> ${p.size}<br>
-            <strong>Temporada:</strong> ${p.season}<br>
-            <strong>Precio:</strong> ${formatPrice(p.price)}
-          </p>
-        </div>
-      </div>
-    </div>`;
+    <div class="product-card">
+      <img src="${p.img}" alt="${p.model}">
+      <h2>${p.brand} ${p.model}</h2>
+      <p><strong>Medida:</strong> ${p.size}</p>
+      <p><strong>Temporada:</strong> ${p.season}</p>
+      <p><strong>Precio:</strong> ${formatPrice(p.price)}</p>
+      <button>Comprar</button>
+    </div>
+  `;
 }
 
 function render(list){

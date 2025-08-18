@@ -41,57 +41,49 @@
 
     <!-- Main -->
 
-    <main class="productos bg-light">
-        <div class="container py-5">
-            <h1 class="mb-4">Catálogo de Neumáticos</h1>
+    <main class="productos">
+        <div class="content">
+            <h1>Catálogo de Neumáticos</h1>
 
             <!-- Filtros -->
-            <div class="row mb-4 g-2">
-                <div class="col-md-3">
-                    <input type="text" id="searchInput" class="buscador form-control" placeholder="Buscar modelo...">
-                </div>
-                <div class="col-md-2">
-                    <select id="brandFilter" class="form-select">
-                        <option value="">Todas las marcas</option>
-                        <option value="Michelin">Michelin</option>
-                        <option value="Pirelli">Pirelli</option>
-                        <option value="Bridgestone">Bridgestone</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select id="sizeFilter" class="form-select">
-                        <option value="">Todas las medidas</option>
-                        <option value="195/65 R15">195/65 R15</option>
-                        <option value="205/55 R16">205/55 R16</option>
-                        <option value="225/45 R17">225/45 R17</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select id="seasonFilter" class="form-select">
-                        <option value="">Todas las temporadas</option>
-                        <option value="Verano">Verano</option>
-                        <option value="Invierno">Invierno</option>
-                        <option value="All Season">All Season</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select id="sortSelect" class="form-select">
-                        <option value="">Ordenar por...</option>
-                        <option value="priceAsc">Precio ↑</option>
-                        <option value="priceDesc">Precio ↓</option>
-                        <option value="size">Tamaño de llanta</option>
-                    </select>
-                </div>
-                <div class="col-md-1">
-                    <button id="clearBtn" class="btn btn-secondary w-100">Limpiar</button>
-                </div>
+            <div class="filtros">
+                <input type="text" id="searchInput" class="buscador" placeholder="Buscar modelo...">
+
+                <select id="brandFilter">
+                    <option value="">Todas las marcas</option>
+                    <option value="Michelin">Michelin</option>
+                    <option value="Pirelli">Pirelli</option>
+                    <option value="Bridgestone">Bridgestone</option>
+                </select>
+
+                <select id="sizeFilter">
+                    <option value="">Todas las medidas</option>
+                    <option value="195/65 R15">195/65 R15</option>
+                    <option value="205/55 R16">205/55 R16</option>
+                    <option value="225/45 R17">225/45 R17</option>
+                </select>
+
+                <select id="seasonFilter">
+                    <option value="">Todas las temporadas</option>
+                    <option value="Verano">Verano</option>
+                    <option value="Invierno">Invierno</option>
+                    <option value="All Season">All Season</option>
+                </select>
+
+                <select id="sortSelect">
+                    <option value="">Ordenar por...</option>
+                    <option value="priceAsc">Precio ↑</option>
+                    <option value="priceDesc">Precio ↓</option>
+                    <option value="size">Tamaño de llanta</option>
+                </select>
+
+                <button id="clearBtn">Limpiar</button>
             </div>
 
-            <!-- Resultados -->
             <p><span id="resultCount"></span></p>
 
             <!-- Productos -->
-            <div id="productGrid" class="row g-3"></div>
+            <div id="productGrid" class="product-grid"></div>
         </div>
     </main>
 

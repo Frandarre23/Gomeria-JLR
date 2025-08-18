@@ -222,56 +222,105 @@ form button:hover {
 }
 
 .productos {
-  padding: 2rem;
-  background-color: #d3d3d3;
+  padding: 40px 20px;
+}
+.productos .content {
+  max-width: 100%;
+  margin: 0 auto;
 }
 .productos h1 {
+  margin-bottom: 24px;
   font-size: 2rem;
-  margin-bottom: 1rem;
   color: #161a1d;
-  text-align: center;
 }
-.productos .buscador {
-  text-align: center;
-  margin-bottom: 2rem;
+.productos .filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
 }
-.productos .buscador input {
-  padding: 0.8rem 1rem;
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #161a1d;
-  border-radius: 0.5rem;
+.productos .filtros input,
+.productos .filtros select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
   font-size: 1rem;
+  flex: 1 1 150px;
+  background-color: #ffffff;
+  color: #0b090a;
+  transition: all 0.3s ease;
+}
+.productos .filtros input:focus,
+.productos .filtros select:focus {
   outline: none;
+  border-color: #e5383b;
 }
-.productos .buscador input:focus {
-  border-color: #a4161a;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) 4px 12px rgba(0, 0, 0, 0.1);
+.productos .filtros button {
+  background-color: #e5383b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 17px;
+  transition: background-color 0.3s, transform 0.2s;
+  flex: 0 0 120px;
 }
-.productos .lista-productos {
+.productos .filtros button:hover {
+  transform: scale(1.03);
+  background-color: #e5383b;
+}
+.productos .filtros button:active {
+  transform: scale(0.95);
+}
+.productos #resultCount {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+.productos .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
-.productos .lista-productos .producto {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) 4px 12px rgba(0, 0, 0, 0.1);
+.productos .product-grid .product-card {
+  background-color: #ffffff;
+  padding: 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.2s ease;
 }
-.productos .lista-productos .producto:hover {
-  transform: translateY(-5px);
+.productos .product-grid .product-card img {
+  max-width: 100%;
+  border-radius: 8px;
 }
-.productos .lista-productos .producto h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+.productos .product-grid .product-card h2 {
+  font-size: 1.2rem;
+  margin: 12px 0;
   color: #161a1d;
 }
-.productos .lista-productos .producto p {
-  font-size: 1rem;
-  color: #b1a7a6;
+.productos .product-grid .product-card p {
+  margin: 6px 0;
+}
+.productos .product-grid .product-card button {
+  color: #e5383b;
+  background-color: #e5383b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 17px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+.productos .product-grid .product-card button:hover {
+  transform: scale(1.03);
+  background-color: #e5383b;
+}
+.productos .product-grid .product-card button:active {
+  transform: scale(0.95);
 }
 
 .servicios {

@@ -11,3 +11,13 @@ html, body {
     padding: 0;
     box-sizing: border-box;
 }
+
+// Layout global
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; // ocupa todo el espacio disponible y empuja el footer hacia abajo
+}

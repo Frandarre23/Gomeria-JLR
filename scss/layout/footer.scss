@@ -1,47 +1,56 @@
-footer {
-  background-color: $color-dark;
-  color: $color-light;
-  padding: 2rem 0;
-  font-family: $font-primary;
-  font-size: 0.9rem;
-  text-align: center;
-  max-width: 100%;
+// Footer
 
-  nav {
-    margin-top: 0.5rem;
+.footer {
+  background-color: $color-dark; // tu color oscuro (ej: #0b090a)
+  color: $color-white;
+  padding: 20px 10px;
+  text-align: center;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  .footer-nav {
+    margin-bottom: 14px;
 
     a {
-      color: $color-light-gray;
-      margin: 0 0.5rem;
+      color: $color-white;
       text-decoration: none;
+      margin: 0 8px;
+      font-size: 0.95rem;
       transition: color 0.3s ease;
 
       &:hover {
         color: $color-red-bright;
-        text-shadow: 0 0 5px $color-red-bright;
       }
     }
   }
 
   .social-icons {
-    margin-top: 1rem;
-    gap: 50px;
+    margin-top: 10px;
 
     a {
-      font-size: 1.5rem;
-      color: $color-light-gray;
-      margin: 0 0.75rem;
+      color: $color-white;
+      margin: 0 6px;
+      font-size: 1.2rem;
+      display: inline-block;
       transition: color 0.3s ease;
 
       &:hover {
         color: $color-red-bright;
       }
+    }
 
-      .payment-icon {
-        width: 130px;
-        height: auto;
-        object-fit: contain; // Mantiene proporción
-      }
+    .payment-icon {
+      height: 28px;
+      vertical-align: middle;
+      border-radius: 6px;
     }
   }
 }

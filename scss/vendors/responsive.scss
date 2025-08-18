@@ -26,7 +26,7 @@
         max-width: 350px;
         margin: 0 auto;
     }
-    
+
     .historia .contenedor .texto {
         order: 2;
         margin-top: 1rem;
@@ -43,7 +43,35 @@
     footer .social-icons a .payment-icon {
         width: 100px;
     }
+
+    .productos {
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .filtros {
+            flex-wrap: wrap;
+
+            input,
+            select {
+                flex: 1 1 100%;
+            }
+
+            button {
+                flex: 1 1 100%;
+            }
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+    }
 }
+
+
+
 
 /* Móviles */
 @media (max-width: 768px) {
@@ -141,7 +169,31 @@
         max-width: 90%; // que no se pierda
         margin: 0 auto;
     }
+
+    .productos {
+        h1 {
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .filtros {
+            flex-direction: column;
+            gap: 10px;
+
+            input,
+            select,
+            button {
+                width: 100%;
+            }
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+        }
+    }
 }
+
 
 
 /* Móviles chicos */
@@ -176,5 +228,35 @@
 
     footer {
         padding: 1rem 0;
+    }
+
+    .productos {
+        padding: 20px 10px;
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        .filtros {
+            gap: 8px;
+        }
+
+        .product-grid {
+            grid-template-columns: 1fr; // 🔹 un producto por fila
+            gap: 10px;
+
+            .product-card {
+                padding: 12px;
+
+                h2 {
+                    font-size: 1rem;
+                }
+
+                button {
+                    font-size: 0.9rem;
+                    padding: 10px;
+                }
+            }
+        }
     }
 }

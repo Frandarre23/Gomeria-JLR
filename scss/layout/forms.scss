@@ -1,53 +1,61 @@
-form {
-  max-width: 600px;
-  max-height: 600px;
-  margin: 0 auto;
-  font-family: $font-primary;
-  color: $color-dark;
+// Forms
 
-  label {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    display: block;
+.main-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: $color-dark;
+    text-align: center;
+  }
+}
+
+.form {
+  background: $color-light;
+  padding: 20px;
+  border-radius: 12px;
+  @include box-shadow(0, 4px, 12px, rgba(0, 0, 0, 0.1));
+
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: $color-dark;
+      font-size: 1rem;
+    }
   }
 
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    border: 1.5px solid $color-gray;
-    border-radius: 6px;
+  .form-input,
+  .form-textarea {
+    padding: 12px;
+    border: 1px solid $color-light-gray;
+    border-radius: 8px;
     font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: $color-white;
+    color: $color-black;
+    @include transition(all, 0.3s);
 
     &:focus {
       outline: none;
-      border-color: $color-red-main;
-      box-shadow: 0 0 8px $color-red-light;
-      background-color: $color-light;
+      border-color: $color-red-bright;
+      box-shadow: 0 0 6px rgba($color-red-bright, 0.5);
     }
   }
 
-  textarea {
+  .form-textarea {
     resize: vertical;
   }
 
-  button {
-    margin-top: 1rem;
-    background-color: $color-red-main;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    color: $color-light;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      background-color: $color-red-bright;
-      box-shadow: 0 0 12px $color-red-bright;
-    }
+  .btn-primary {
+    $nombre-color: $color-red-bright !global;
+    @include button-style();
+    width: 100%;
   }
 }

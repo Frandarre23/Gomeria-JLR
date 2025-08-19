@@ -1,6 +1,6 @@
 .headline {
   position: relative;
-  background-image: url("../images/Heroimg.jpg");
+  background-image: url("../images/Heroimg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,6 +10,8 @@
   justify-content: center;
   text-align: center;
   color: $color-white;
+  width: 100%;
+  flex-shrink: 0; // evita que se encoja dentro del body flex
 
   // Overlay con transparencia
   &::before {

@@ -103,6 +103,7 @@ main {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px 20px;
+  width: 100%;
 }
 .main-container h2 {
   font-size: 1.8rem;
@@ -167,6 +168,41 @@ main {
   transform: scale(0.95);
 }
 
+.politics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+.politics .politic-card {
+  background-color: #f5f3f4;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.politics .politic-card h3 {
+  color: #660708;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+.politics .politic-card p {
+  color: #161a1d;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.politics .politic-card:hover {
+  transform: translateY(-4px);
+}
+
+.last-updated {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #b1a7a6;
+  font-style: italic;
+}
+
 .icon-box {
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -177,9 +213,14 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
 }
-.icon-box h5 {
+.icon-box h2 {
+  color: #161a1d;
+  font-weight: bold;
+}
+.icon-box h3 {
   color: #161a1d;
   font-weight: 700;
+  font-size: 1rem;
 }
 .icon-box p {
   color: #161a1d;
@@ -408,7 +449,7 @@ main {
 
 .headline {
   position: relative;
-  background-image: url("../images/Heroimg.jpg");
+  background-image: url("../images/Heroimg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -418,6 +459,8 @@ main {
   justify-content: center;
   text-align: center;
   color: #ffffff;
+  width: 100%;
+  flex-shrink: 0;
 }
 .headline::before {
   content: "";

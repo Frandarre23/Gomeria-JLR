@@ -1,0 +1,36 @@
+// Politics
+
+.politics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+
+    .politic-card {
+        @include card-style($color-light, 20px, 12px, 0 4px 10px rgba(0, 0, 0, 0.1));
+        @include transition(transform);
+
+        h3 {
+            color: $color-red-dark;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            color: $color-dark;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+}
+    .last-updated {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: $color-gray;
+        font-style: italic;
+    }

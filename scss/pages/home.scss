@@ -40,10 +40,9 @@
     display: grid;
     max-width: 100%;
     padding: 0 1rem;
-    overflow-x: hidden;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(1, 100%);
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    align-items: center;
 
     .foto {
 
@@ -56,8 +55,6 @@
     }
 
     .texto {
-      grid-column: 2;
-      align-content: flex-start;
 
       h3 {
         font-size: 2rem;

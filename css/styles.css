@@ -237,19 +237,14 @@ main {
   display: grid;
   max-width: 100%;
   padding: 0 1rem;
-  overflow-x: hidden;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(1, 100%);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  align-items: center;
 }
 .historia .contenedor .foto img {
   width: 100%;
   height: auto;
   border-radius: 1rem;
-}
-.historia .contenedor .texto {
-  grid-column: 2;
-  align-content: flex-start;
 }
 .historia .contenedor .texto h3 {
   font-size: 2rem;
@@ -561,18 +556,21 @@ main {
   .historia .contenedor {
     grid-template-columns: 1fr;
     text-align: center;
+    align-items: center;
+    justify-items: center;
   }
   .historia .contenedor .foto {
     order: 1;
   }
   .historia .contenedor .foto img {
     width: 100%;
-    max-width: 350px;
+    max-width: 500px;
     margin: 0 auto;
   }
   .historia .contenedor .texto {
     order: 2;
     margin-top: 1rem;
+    max-width: 600px;
   }
   form {
     max-width: 90%;

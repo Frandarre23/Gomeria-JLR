@@ -1,11 +1,27 @@
-// Datos de productos
-const products = [
-  { id:1, brand:'Michelin', model:'Primacy 4', size:'205/55 R16', season:'All Season', price:159999, img:'https://via.placeholder.com/300x200?text=Michelin+Primacy+4' },
-  { id:2, brand:'Pirelli', model:'Cinturato P1', size:'195/65 R15', season:'All Season', price:129999, img:'https://via.placeholder.com/300x200?text=Pirelli+Cinturato+P1' },
-  { id:3, brand:'Bridgestone', model:'Turanza T005', size:'225/45 R17', season:'All Season', price:179999, img:'https://via.placeholder.com/300x200?text=Bridgestone+Turanza+T005' },
-  { id:4, brand:'Fate', model:'Prestiva', size:'175/45 R14', season:'All Season', price:120999, img:'https://calzetta.com.ar/producto/175-70r14-84t-fate-prestiva/'}
-];
+// URL de tu Google Sheet publicado como CSV
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMhLwJpILy0W4pNWkOOnIChiMo-KhwK8tE8D6DpV6s-Sjw1G_6AdsT-dmOMlMxlFYnUT9v8aH_Z5kF/pub?gid=0&single=true&output=csv";
 
+// Array de productos (se llenará desde Sheets)
+let products = [];
+
+// Cargar productos desde Google Sheets con PapaParse
+Papa.parse(sheetURL, {
+  download: true,
+  header: true,
+  complete: function(results) {
+    products = results.data.map((row, index) => ({
+      id: index + 1,
+      brand: row.brand,
+      model: row.model,
+      size: row.size,
+      season: row.season,
+      price: parseFloat(row.price),
+      img: row.img
+    }));
+
+    render(products); // Renderiza los productos al cargar
+  }
+});
 // Helpers
 const $ = sel => document.querySelector(sel);
 const $$ = sel => document.querySelectorAll(sel);
@@ -70,3 +86,4 @@ $("#clearBtn").addEventListener("click", ()=>{
 
 // Inicial
 render(products);
+

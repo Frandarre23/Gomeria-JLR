@@ -1,0 +1,17 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 10 |         @include card-style($color-light, 20px, 12px, 0 4px 10px rgba(0, 0, 0, 0.1));
+ *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   scss\pages\politics.scss 10:9  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 10 \2502          @include card-style($color-light, 20px, 12px, 0 4px 10px rgba(0, 0, 0, 0.1));\d\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   scss\\pages\\politics.scss 10:9  root stylesheet";
+}

@@ -206,7 +206,7 @@ main {
 .icon-box {
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: default;
 }
 .icon-box:hover {
@@ -349,7 +349,7 @@ main {
 }
 .productos .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
 }
 .productos .product-grid .product-card {
@@ -360,9 +360,7 @@ main {
   text-align: center;
 }
 .productos .product-grid .product-card img {
-  width: 100px;
-  max-width: 100%;
-  border-radius: 8px;
+  height: 140px;
 }
 .productos .product-grid .product-card h2 {
   font-size: 1.2rem;
@@ -383,7 +381,7 @@ main {
   padding: 16px;
   font-size: 17px;
   transition: background-color 0.3s, transform 0.2s;
-  margin-top: 10px;
+  margin-top: auto;
 }
 .productos .product-grid .product-card button:hover {
   transform: scale(1.03);

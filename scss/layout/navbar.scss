@@ -1,28 +1,32 @@
 // Navbar
 
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+@use "../base/typography.scss" as *;
+
 .navbar {
-  background-color: $color-dark !important;
+  background-color: $color-dark;
 
   .navbar-brand {
-    color: $color-red-main !important;
+    color: $color-red-main;
     font-weight: 900;
     font-family: $font-primary;
     font-size: 1.8rem;
 
     &:hover {
-      color: $color-red-bright !important;
+      color: $color-red-bright;
       text-shadow: 0 0 5px $color-red-bright;
     }
   }
 
   .nav-link {
-    color: $color-light-gray !important;
+    color: $color-light-gray;
     font-weight: 600;
     font-family: $font-primary;
     transition: color 0.3s ease;
 
     &:hover {
-      color: $color-red-bright !important;
+      color: $color-red-bright;
       text-shadow: 0 0 3px $color-red-bright;
     }
   }

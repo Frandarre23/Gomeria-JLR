@@ -1,5 +1,8 @@
 // Forms
 
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
 .main-container {
   max-width: 600px;
   margin: 0 auto;
@@ -55,7 +58,7 @@
   }
 
   .btn-primary {
-    $nombre-color: $color-red-bright !global;
+    $nombre-color: $color-red-bright;
     @include button-style();
     width: 100%;
   }

@@ -1,17 +1,14 @@
-/* Error: Undefined variable.
- *   ,
- * 4 |   background-color: $color-red-main;
- *   |                     ^^^^^^^^^^^^^^^
- *   '
- *   scss\components\buttons.scss 4:21  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 4 \2502    background-color: $color-red-main;\d\a   \2502                      ^^^^^^^^^^^^^^^\a   \2575 \a   scss\\components\\buttons.scss 4:21  root stylesheet";
+.btn-danger {
+  background-color: #a4161a;
+  border: none;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+.btn-danger:hover {
+  background-color: #e5383b;
+  box-shadow: 0 0 15px #e5383b;
+}
+
+/*# sourceMappingURL=buttons.css.map */

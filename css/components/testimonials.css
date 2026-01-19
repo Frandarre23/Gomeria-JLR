@@ -1,17 +1,49 @@
-/* Error: Undefined variable.
- *    ,
- * 13 |             background-color: $color-black;
- *    |                               ^^^^^^^^^^^^
- *    '
- *   scss\components\testimonials.scss 13:31  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 13 \2502              background-color: $color-black;\d\a    \2502                                ^^^^^^^^^^^^\a    \2575 \a   scss\\components\\testimonials.scss 13:31  root stylesheet";
+.testimonial {
+  background-color: white;
+  padding: 5rem 0;
+  overflow: visible !important;
 }
+.testimonial .carousel-inner {
+  overflow: visible !important;
+}
+.testimonial .carousel-item .card {
+  background-color: #0b090a;
+  border-radius: 1rem;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  max-width: 500px;
+  height: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.testimonial .carousel-item .user-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.testimonial .carousel-item p {
+  display: flex;
+  flex: 1;
+  align-content: center;
+  font-style: italic;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.testimonial .carousel-item .stars {
+  font-size: 1.5rem;
+  align-content: flex-end;
+  color: #e5383b;
+}
+.testimonial .carousel-control-prev-icon,
+.testimonial .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/*# sourceMappingURL=testimonials.css.map */

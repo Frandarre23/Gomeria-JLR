@@ -21,26 +21,26 @@ main {
 }
 
 .navbar {
-  background-color: #161a1d !important;
+  background-color: #161a1d;
 }
 .navbar .navbar-brand {
-  color: #a4161a !important;
+  color: #a4161a;
   font-weight: 900;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.8rem;
 }
 .navbar .navbar-brand:hover {
-  color: #e5383b !important;
+  color: #e5383b;
   text-shadow: 0 0 5px #e5383b;
 }
 .navbar .nav-link {
-  color: #d3d3d3 !important;
+  color: #d3d3d3;
   font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: color 0.3s ease;
 }
 .navbar .nav-link:hover {
-  color: #e5383b !important;
+  color: #e5383b;
   text-shadow: 0 0 3px #e5383b;
 }
 .navbar .navbar-toggler {
@@ -358,9 +358,13 @@ main {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 }
 .productos .product-grid .product-card img {
   height: 140px;
+  object-fit: contain;
 }
 .productos .product-grid .product-card h2 {
   font-size: 1.2rem;

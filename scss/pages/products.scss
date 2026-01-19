@@ -1,5 +1,8 @@
 // Productos
 
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
 .productos {
     padding: 40px 20px;
 
@@ -37,7 +40,7 @@
         }
 
         button {
-            $nombre-color: $color-red-bright !global; // Para usar en tu mixin
+            $nombre-color: $color-red-bright; // Para usar en tu mixin
             @include button-style();
             flex: 0 0 120px;
         }
@@ -57,11 +60,13 @@
         .product-card {
             @include card-style($color: $color-white, $padding: 0px, $border-radius: 12px);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
 
             img {
-                //max-width: 100%;
                 height: 140px;
-                //border-radius: 8px;
+                object-fit: contain;
             }
 
             h2 {

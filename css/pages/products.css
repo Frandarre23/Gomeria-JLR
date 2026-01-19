@@ -1,17 +1,106 @@
-/* Error: Undefined variable.
- *    ,
- * 14 |         color: $color-dark;
- *    |                ^^^^^^^^^^^
- *    '
- *   scss\pages\products.scss 14:16  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 14 \2502          color: $color-dark;\d\a    \2502                 ^^^^^^^^^^^\a    \2575 \a   scss\\pages\\products.scss 14:16  root stylesheet";
+.productos {
+  padding: 40px 20px;
 }
+.productos .content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.productos h1 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #161a1d;
+}
+.productos .filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.productos .filtros input,
+.productos .filtros select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
+  font-size: 1rem;
+  flex: 1 1 150px;
+  background-color: #ffffff;
+  color: #0b090a;
+  transition: all 0.3s ease;
+}
+.productos .filtros input:focus,
+.productos .filtros select:focus {
+  outline: none;
+  border-color: #e5383b;
+}
+.productos .filtros button {
+  background-color: #e5383b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 17px;
+  transition: background-color 0.3s, transform 0.2s;
+  flex: 0 0 120px;
+}
+.productos .filtros button:hover {
+  transform: scale(1.03);
+  background-color: #e5383b;
+}
+.productos .filtros button:active {
+  transform: scale(0.95);
+}
+.productos #resultCount {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+.productos .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+.productos .product-grid .product-card {
+  background-color: #ffffff;
+  padding: 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.productos .product-grid .product-card img {
+  height: 140px;
+  object-fit: contain;
+}
+.productos .product-grid .product-card h2 {
+  font-size: 1.2rem;
+  margin: 12px 0;
+  color: #161a1d;
+}
+.productos .product-grid .product-card p {
+  margin: 6px 0;
+}
+.productos .product-grid .product-card button {
+  color: #e5383b;
+  background-color: #e5383b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 17px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: auto;
+}
+.productos .product-grid .product-card button:hover {
+  transform: scale(1.03);
+  background-color: #e5383b;
+}
+.productos .product-grid .product-card button:active {
+  transform: scale(0.95);
+}
+
+/*# sourceMappingURL=products.css.map */

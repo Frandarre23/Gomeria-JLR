@@ -1,17 +1,47 @@
-/* Error: Undefined variable.
- *   ,
- * 4 |   background-color: $color-dark; // tu color oscuro (ej: #0b090a)
- *   |                     ^^^^^^^^^^^
- *   '
- *   scss\layout\footer.scss 4:21  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 4 \2502    background-color: $color-dark; // tu color oscuro (ej: #0b090a)\d\a   \2502                      ^^^^^^^^^^^\a   \2575 \a   scss\\layout\\footer.scss 4:21  root stylesheet";
+.footer {
+  background-color: #161a1d;
+  color: #ffffff;
+  padding: 20px 10px;
+  text-align: center;
 }
+.footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer p {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+.footer .footer-nav {
+  margin-bottom: 14px;
+}
+.footer .footer-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+.footer .footer-nav a:hover {
+  color: #e5383b;
+}
+.footer .social-icons {
+  margin-top: 10px;
+}
+.footer .social-icons a {
+  color: #ffffff;
+  margin: 0 6px;
+  font-size: 1.2rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.footer .social-icons a:hover {
+  color: #e5383b;
+}
+.footer .social-icons .payment-icon {
+  height: 28px;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+
+/*# sourceMappingURL=footer.css.map */

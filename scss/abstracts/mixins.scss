@@ -1,7 +1,9 @@
 // Mixin de boton 
 
+@use "variables" as *;
+
 @mixin button-style($text-color: white) {
-    background-color: $nombre-color;
+    background-color: $color-red-bright;
     color: $text-color;
     border: none;
     border-radius: 10px;
@@ -13,7 +15,7 @@
     
     &:hover {
       transform: scale(1.03);
-      background-color: $nombre-color;
+      background-color: $color-red-bright;
     }
     
     &:active {

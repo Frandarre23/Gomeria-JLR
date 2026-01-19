@@ -1,5 +1,8 @@
 // Servicios
 
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
 .servicios {
   padding: 2rem;
   margin: 0 auto;

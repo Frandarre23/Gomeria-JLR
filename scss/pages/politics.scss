@@ -1,5 +1,8 @@
 // Politics
 
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
 .politics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -1,3 +1,7 @@
+
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
 .testimonial {
 
     background-color: white;

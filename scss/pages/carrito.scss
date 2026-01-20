@@ -1,0 +1,45 @@
+// Carrito
+
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
+
+.cart-nav {
+    margin-left: 12px;
+}
+
+.cart-icon {
+    position: relative;
+    background: transparent;
+    border: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    font-size: 1.2rem;
+    color: white;            
+    cursor: pointer;
+    padding: 6px 10px;
+    text-decoration: none;     
+
+    &:hover {
+        color: $color-red-bright;
+        text-decoration: none;
+    }
+}
+
+.navbar .cart-icon {
+    color: white !important;
+}
+
+.cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: $color-red-bright;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+    line-height: 1;
+}

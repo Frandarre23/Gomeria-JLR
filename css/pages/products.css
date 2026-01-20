@@ -71,6 +71,7 @@
   padding: 16px;
 }
 .productos .product-grid .product-card img {
+  max-width: 100%;
   height: 140px;
   object-fit: contain;
 }
@@ -83,7 +84,6 @@
   margin: 6px 0;
 }
 .productos .product-grid .product-card button {
-  color: #e5383b;
   background-color: #e5383b;
   color: white;
   border: none;

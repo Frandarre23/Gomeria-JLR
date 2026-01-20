@@ -4,9 +4,8 @@ const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMhLwJpILy0W4
 // Array de productos (se llenará desde Sheets)
 let products = [];
 
-// ============================
-// CARRITO
-// ============================
+// Carrito
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const $ = s => document.querySelector(s);
@@ -47,9 +46,8 @@ function updateCartUI() {
   $("#cartTotal").textContent = formatPrice(total);
 }
 
-// ============================
-// PRODUCTOS
-// ============================
+// Productos
+
 Papa.parse(sheetURL, {
   download: true,
   header: true,
@@ -96,9 +94,9 @@ function render(list){
   setupAddToCart();
 }
 
-// ============================
-// FILTROS
-// ============================
+
+// Filtros
+
 function applyFilters(){
   const q = $("#searchInput").value.toLowerCase();
   const brand = $("#brandFilter").value;
@@ -127,12 +125,16 @@ function applyFilters(){
 });
 
 $("#clearBtn").addEventListener("click",()=>{
+  $("#searchInput").value = "";
+  $("#brandFilter").value = "";
+  $("#sizeFilter").value = "";
+  $("#seasonFilter").value = "";
+  $("#sortSelect").value = "";
   render(products);
 });
 
-// ============================
-// UI
-// ============================
+// Ui
+
 $(".cart-icon").addEventListener("click",()=>{
   $("#cart").classList.toggle("active");
 });

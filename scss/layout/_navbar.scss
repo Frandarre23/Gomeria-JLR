@@ -1,8 +1,8 @@
 // Navbar
 
-@use "../abstracts/mixins.scss" as *;
-@use "../abstracts/variables.scss" as *;
-@use "../base/typography.scss" as *;
+@use "../abstracts/_mixins.scss" as *;
+@use "../abstracts/_variables.scss" as *;
+@use "../base/_typography.scss" as *;
 
 .navbar {
   background-color: $color-dark;

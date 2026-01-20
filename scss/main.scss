@@ -1,26 +1,26 @@
 // Abstractos
-@use "abstracts/variables.scss";
-@use "abstracts/mixins.scss";
+@use "abstracts/_variables.scss";
+@use "abstracts/_mixins.scss";
 
 // Base
-@use "base/reset.scss";
-@use "base/typography.scss";
+@use "base/_reset.scss";
+@use "base/_typography.scss";
 
 // Layout
-@use "layout/navbar.scss";
-@use "layout/footer.scss";
-@use "layout/forms.scss";
+@use "layout/_navbar.scss";
+@use "layout/_footer.scss";
+@use "layout/_forms.scss";
 
 // Pages 
-@use "pages/politics.scss";
-@use "pages/home.scss";
-@use "pages/products.scss";
-@use "pages/services.scss";
+@use "pages/_politics.scss";
+@use "pages/_home.scss";
+@use "pages/_products.scss";
+@use "pages/_services.scss";
 
 // Componentes
-@use "components/buttons.scss";
-@use "components/headline.scss";
-@use "components/testimonials.scss";
+@use "components/_buttons.scss";
+@use "components/_headline.scss";
+@use "components/_testimonials.scss";
 
 // Vendors
-@use "vendors/responsive.scss";
+@use "vendors/_responsive.scss";

@@ -1,7 +1,7 @@
 // Forms
 
-@use "../abstracts/mixins.scss" as *;
-@use "../abstracts/variables.scss" as *;
+@use "../abstracts/_mixins.scss" as *;
+@use "../abstracts/_variables.scss" as *;
 
 .main-container {
   max-width: 600px;

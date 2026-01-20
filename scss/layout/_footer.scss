@@ -1,7 +1,7 @@
 // Footer
 
-@use "../abstracts/mixins.scss" as *;
-@use "../abstracts/variables.scss" as *;
+@use "../abstracts/_mixins.scss" as *;
+@use "../abstracts/_variables.scss" as *;
 
 .footer {
   background-color: $color-dark; // tu color oscuro (ej: #0b090a)

@@ -7,6 +7,8 @@ function renderCart(){
     const container = document.getElementById("cartItems");
     const totalEl = document.getElementById("cartTotal");
 
+    updateCartCount(); // 👈 IMPORTANTE
+
     if(cart.length === 0){
         container.innerHTML = "<p>El carrito está vacío</p>";
         totalEl.textContent = formatPrice(0);
@@ -36,6 +38,21 @@ function removeItem(i){
     cart.splice(i,1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
+    updateCartCount(); // 👈 clave
 }
 
 renderCart();
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((acc, item) => acc + item.qty, 0);
+
+  const cartCount = document.getElementById("cartCount");
+  if (cartCount) {
+    cartCount.textContent = count;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+});

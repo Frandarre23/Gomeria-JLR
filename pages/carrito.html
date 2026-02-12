@@ -41,13 +41,25 @@
 
     <!-- Main -->
     <main class="container cart-page">
-        <h1>🛒 Tu carrito</h1>
+        <h1 class="mb-4">🛒 Tu carrito</h1>
 
-        <div id="cartItems"></div>
+        <div id="cartItems" class="mb-4"></div>
 
-        <div class="cart-summary">
-            <h3>Total: <span id="cartTotal">$0</span></h3>
-            <button class="btn btn-danger">Finalizar compra</button>
+        <div class="cart-summary p-4 rounded shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Total:</h4>
+                <h3 id="cartTotal">$0</h3>
+            </div>
+
+            <div class="d-flex gap-3">
+                <button id="clearCart" class="btn btn-outline-secondary w-50">
+                    Vaciar carrito
+                </button>
+
+                <button id="checkoutBtn" class="btn btn-danger w-50">
+                    Finalizar compra
+                </button>
+            </div>
         </div>
     </main>
 

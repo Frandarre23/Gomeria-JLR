@@ -11,11 +11,24 @@ const formatPrice = n => {
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalQty = storedCart.reduce((acc, item) => acc + (item.qty || 0), 0);
+
+  const cartCount = document.getElementById("cartCount");
+  if (cartCount) {
+    cartCount.textContent = totalQty;
+  }
 }
 
 function renderCart() {
   const container = document.getElementById("cartItems");
   const totalEl = document.getElementById("cartTotal");
+
+  if (!container || !totalEl) return;
 
   if (cart.length === 0) {
     container.innerHTML = `
@@ -30,18 +43,18 @@ function renderCart() {
   let total = 0;
 
   container.innerHTML = cart.map((p, i) => {
-    const subtotal = p.price * p.qty;
+    const subtotal = (p.price || 0) * (p.qty || 1);
     total += subtotal;
 
     return `
       <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
           <div class="col-md-2">
-            <img src="${p.img}" class="img-fluid rounded">
+            <img src="${p.img || ''}" alt="${p.brand || ''} ${p.model || ''}" class="img-fluid rounded">
           </div>
 
           <div class="col-md-4">
-            <h5>${p.brand} ${p.model}</h5>
+            <h5>${p.brand || ''} ${p.model || ''}</h5>
             <p class="mb-1">Precio: ${formatPrice(p.price)}</p>
             <strong>Subtotal: ${formatPrice(subtotal)}</strong>
           </div>
@@ -58,7 +71,7 @@ function renderCart() {
 
           <div class="col-md-3 text-end">
             <button class="btn btn-sm btn-danger"
-              onclick="removeItem(${i})">
+              onclick="removeItem(${i})" aria-label="Eliminar producto">
               <i class="fas fa-trash"></i>
             </button>
           </div>
@@ -71,12 +84,14 @@ function renderCart() {
 }
 
 function increaseQty(i) {
+  if (!cart[i]) return;
   cart[i].qty++;
   saveCart();
   renderCart();
 }
 
 function decreaseQty(i) {
+  if (!cart[i]) return;
   if (cart[i].qty > 1) {
     cart[i].qty--;
   } else {
@@ -87,6 +102,7 @@ function decreaseQty(i) {
 }
 
 function removeItem(i) {
+  if (!cart[i]) return;
   cart.splice(i, 1);
   saveCart();
   renderCart();
@@ -109,23 +125,20 @@ function checkout() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderCart();
+  updateCartCount();
 
-  document.getElementById("clearCart")
-    .addEventListener("click", clearCart);
-
-  document.getElementById("checkoutBtn")
-    .addEventListener("click", checkout);
-});
-
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
-
-  const cartCount = document.getElementById("cartCount");
-  if (cartCount) {
-    cartCount.textContent = totalQty;
+  const container = document.getElementById("cartItems");
+  if (container) {
+    renderCart();
   }
-}
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+  const clearBtn = document.getElementById("clearCart");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", clearCart);
+  }
+
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", checkout);
+  }
+});

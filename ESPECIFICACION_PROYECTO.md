@@ -148,8 +148,6 @@ renderCart() lee localStorage:
    │      - Total de neumáticos = 0 unidades
    │
    └─► Si hay productos:
-          - Dibuja tarjeta por cada neumático (imagen, marca, modelo, medida, temporada)
-          - NO muestra precios ni subtotales monetarios en el carrito
           - Dibuja tarjeta por cada neumático mostrando únicamente foto, nombre (marca y modelo) y selector de cantidades
           - NO muestra precios, medidas ni subtotales monetarios dentro del carrito
           - Botones [+]: dispara increaseQty(index) -> guarda y re-renderiza

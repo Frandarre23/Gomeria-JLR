@@ -1,7 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Número oficial de WhatsApp de Gomería JLR (+54 9 11 3199-9002)
-const WHATSAPP_PHONE = "5491131999002";
+// Número oficial de WhatsApp de Gomería JLR (incluir código de país y área, ej: 54911xxxxxxxx)
+const WHATSAPP_PHONE = "+5491131999002";
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -130,7 +130,8 @@ function checkoutWhatsApp() {
 
   text += "\n¿Tienen stock y me pueden informar los métodos de pago? ¡Gracias!";
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+  const cleanPhone = WHATSAPP_PHONE.replace(/[^0-9]/g, "");
+  const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
   window.open(whatsappUrl, "_blank");
 }
 

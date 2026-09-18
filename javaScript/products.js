@@ -162,7 +162,6 @@ function cardHTML(p) {
       <h2>${p.brand} ${p.model}</h2>
       <p><strong>Medida:</strong> ${p.size || 'No especificada'}</p>
       <p><strong>Temporada:</strong> ${p.season || 'All Season'}</p>
-      <p><strong>Precio:</strong> ${formatPrice(p.price)}</p>
       <button class="add-to-cart" data-id="${p.id}">Agregar al carrito</button>
     </div>
   `;

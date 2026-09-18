@@ -1,7 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Número oficial de WhatsApp de Gomería JLR (incluir código de país y área, ej: 54911xxxxxxxx)
-const WHATSAPP_PHONE = "5491100000000";
+// Número oficial de WhatsApp de Gomería JLR (+54 9 11 3199-9002)
+const WHATSAPP_PHONE = "5491131999002";
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -53,6 +53,7 @@ function renderCart() {
             <h5>${p.brand || ''} ${p.model || ''}</h5>
             ${p.size ? `<p class="mb-1 text-muted"><strong>Medida:</strong> ${p.size}</p>` : ''}
             ${p.season ? `<p class="mb-1 text-muted"><strong>Temporada:</strong> ${p.season}</p>` : ''}
+            <h5 class="mb-0">${p.brand || ''} ${p.model || ''}</h5>
           </div>
 
           <div class="col-md-3 d-flex align-items-center gap-2">

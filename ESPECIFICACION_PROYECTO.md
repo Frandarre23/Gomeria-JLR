@@ -150,6 +150,8 @@ renderCart() lee localStorage:
    └─► Si hay productos:
           - Dibuja tarjeta por cada neumático (imagen, marca, modelo, medida, temporada)
           - NO muestra precios ni subtotales monetarios en el carrito
+          - Dibuja tarjeta por cada neumático mostrando únicamente foto, nombre (marca y modelo) y selector de cantidades
+          - NO muestra precios, medidas ni subtotales monetarios dentro del carrito
           - Botones [+]: dispara increaseQty(index) -> guarda y re-renderiza
           - Botones [-]: dispara decreaseQty(index) -> decrementa o elimina si llega a 0
           - Botón [Tacho]: dispara removeItem(index) -> elimina del array

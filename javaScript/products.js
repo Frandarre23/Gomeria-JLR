@@ -9,8 +9,31 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
+
+// Parsea precios de forma segura soportando vacíos, texto, formato argentino ($ 150.000 o 150000)
+function parsePrice(val) {
+  if (!val) return 0;
+  if (typeof val === "number") return val;
+
+  let str = val.toString().replace(/[^0-9.,]/g, "").trim();
+  if (!str) return 0;
+
+  if (str.includes(".") && str.includes(",")) {
+    str = str.replace(/\./g, "").replace(",", ".");
+  } else if (str.includes(".") && !str.includes(",")) {
+    const parts = str.split(".");
+    if (parts.length > 1 && parts[parts.length - 1].length === 3) {
+      str = str.replace(/\./g, ""); // separador de miles (ej: 120.000 -> 120000)
+    }
+  } else if (str.includes(",")) {
+    str = str.replace(",", ".");
+  }
+
+  return parseFloat(str) || 0;
+}
+
 const formatPrice = n => {
-  if (!n || isNaN(n)) return "$0";
+  if (!n || isNaN(n) || n <= 0) return "Consultar";
   return n.toLocaleString("es-AR", {
     style: "currency",
     currency: "ARS",
@@ -60,16 +83,13 @@ function updateCartUI() {
   const cartItemsEl = document.getElementById("cartItems");
   const cartTotalEl = document.getElementById("cartTotal");
 
-  // Siempre actualizamos el contador si existe
   if (cartCountEl) {
     const totalQty = cart.reduce((a, b) => a + (b.qty || 0), 0);
     cartCountEl.textContent = totalQty;
   }
 
-  // Si no estamos en la página carrito con estos elementos, salimos
   if (!cartItemsEl || !cartTotalEl) return;
 
-  // Renderizamos solo si existen los elementos
   cartItemsEl.innerHTML = cart.map((item, i) => `
     <li>
       ${item.brand} ${item.model} x${item.qty}
@@ -82,35 +102,65 @@ function updateCartUI() {
   cartTotalEl.textContent = formatPrice(total);
 }
 
-// Carga única y sanitizada de productos desde Google Sheets
-Papa.parse(sheetURL, {
-  download: true,
-  header: true,
-  complete: res => {
-    products = (res.data || []).map((r, i) => ({
-      id: i + 1,
-      brand: r.brand ? r.brand.trim() : "",
-      model: r.model ? r.model.trim() : "",
-      size: r.size ? r.size.trim() : "",
-      season: r.season ? r.season.trim() : "",
-      price: Number(r.price) || 0,
-      img: r.img ? r.img.trim() : ""
-    })).filter(p => p.price > 0);
+// Carga de productos desde Google Sheets con feedback de carga y error
+function loadProducts() {
+  const grid = $("#productGrid");
+  const count = $("#resultCount");
 
-    render(products);
-  },
-  error: err => {
-    console.error("Error al cargar la hoja de productos:", err);
+  if (grid) {
+    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 2rem;">Cargando neumáticos desde la planilla...</p>`;
   }
-});
+
+  Papa.parse(sheetURL, {
+    download: true,
+    header: true,
+    complete: res => {
+      // Filtra filas que tengan al menos marca o modelo (no descartamos por precio vacío)
+      products = (res.data || [])
+        .map((r, i) => ({
+          id: i + 1,
+          brand: r.brand ? r.brand.trim() : "",
+          model: r.model ? r.model.trim() : "",
+          size: r.size ? r.size.trim() : "",
+          season: r.season ? r.season.trim() : "",
+          price: parsePrice(r.price),
+          img: r.img ? r.img.trim() : ""
+        }))
+        .filter(p => p.brand !== "" || p.model !== "");
+
+      if (products.length === 0) {
+        if (grid) grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center;">No se encontraron productos disponibles.</p>`;
+        if (count) count.textContent = "Mostrando 0 productos";
+        return;
+      }
+
+      render(products);
+    },
+    error: err => {
+      console.error("Error al cargar la hoja de productos:", err);
+      if (grid) {
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; color: #dc3545; padding: 2rem;">
+            <h5>No se pudo cargar la lista de productos</h5>
+            <p style="font-size: 0.9rem; color: #666;">
+              Si abriste la página con doble clic (file://), el navegador bloquea la conexión por seguridad (CORS).<br>
+              Abre el proyecto usando la extensión <strong>Live Server</strong> en VS Code.
+            </p>
+          </div>
+        `;
+      }
+      if (count) count.textContent = "Error de conexión";
+    }
+  });
+}
 
 function cardHTML(p) {
   return `
     <div class="product-card">
       <img src="${p.img}" alt="${p.brand} ${p.model}">
       <h2>${p.brand} ${p.model}</h2>
-      <p><strong>Medida:</strong> ${p.size}</p>
-      <p><strong>Temporada:</strong> ${p.season}</p>
+      <p><strong>Medida:</strong> ${p.size || 'No especificada'}</p>
+      <p><strong>Temporada:</strong> ${p.season || 'All Season'}</p>
       <p><strong>Precio:</strong> ${formatPrice(p.price)}</p>
       <button class="add-to-cart" data-id="${p.id}">Comprar</button>
     </div>
@@ -166,6 +216,7 @@ function applyFilters() {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateCartUI();
+  loadProducts();
 
   ["#searchInput", "#brandFilter", "#sizeFilter", "#seasonFilter", "#sortSelect"]
     .forEach(s => {
@@ -194,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // UI Drawer / modal si existiese
+  // Drawer / modal si existiera
   const cartDrawer = $("#cart");
   const cartIcon = $(".cart-icon");
   if (cartDrawer && cartIcon) {

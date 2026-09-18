@@ -62,6 +62,8 @@ function addToCart(product) {
       id: product.id,
       brand: product.brand,
       model: product.model,
+      size: product.size,
+      season: product.season,
       price: product.price,
       img: product.img,
       qty: 1
@@ -93,13 +95,12 @@ function updateCartUI() {
   cartItemsEl.innerHTML = cart.map((item, i) => `
     <li>
       ${item.brand} ${item.model} x${item.qty}
-      ${formatPrice((item.price || 0) * (item.qty || 1))}
       <button onclick="removeFromCart(${i})" aria-label="Eliminar producto">❌</button>
     </li>
   `).join("");
 
-  const total = cart.reduce((s, p) => s + (p.price || 0) * (p.qty || 1), 0);
-  cartTotalEl.textContent = formatPrice(total);
+  const total = cart.reduce((s, p) => s + (p.qty || 1), 0);
+  cartTotalEl.textContent = `${total} unidad(es)`;
 }
 
 // Carga de productos desde Google Sheets con feedback de carga y error
@@ -162,7 +163,7 @@ function cardHTML(p) {
       <p><strong>Medida:</strong> ${p.size || 'No especificada'}</p>
       <p><strong>Temporada:</strong> ${p.season || 'All Season'}</p>
       <p><strong>Precio:</strong> ${formatPrice(p.price)}</p>
-      <button class="add-to-cart" data-id="${p.id}">Comprar</button>
+      <button class="add-to-cart" data-id="${p.id}">Agregar al carrito</button>
     </div>
   `;
 }

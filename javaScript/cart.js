@@ -1,13 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const formatPrice = n => {
-  if (!n || isNaN(n)) return "$0";
-  return n.toLocaleString("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    maximumFractionDigits: 0
-  });
-};
+// Número oficial de WhatsApp de Gomería JLR (incluir código de país y área, ej: 54911xxxxxxxx)
+const WHATSAPP_PHONE = "5491100000000";
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -27,8 +21,9 @@ function updateCartCount() {
 function renderCart() {
   const container = document.getElementById("cartItems");
   const totalEl = document.getElementById("cartTotal");
+  const totalUnitsSpan = document.getElementById("cartTotalUnits");
 
-  if (!container || !totalEl) return;
+  if (!container) return;
 
   if (cart.length === 0) {
     container.innerHTML = `
@@ -36,16 +31,17 @@ function renderCart() {
         El carrito está vacío
       </div>
     `;
-    totalEl.textContent = formatPrice(0);
+    if (totalUnitsSpan) {
+      totalUnitsSpan.textContent = "0";
+    } else if (totalEl) {
+      totalEl.textContent = "0 unidades";
+    }
     return;
   }
 
-  let total = 0;
+  const totalUnits = cart.reduce((acc, p) => acc + (p.qty || 1), 0);
 
   container.innerHTML = cart.map((p, i) => {
-    const subtotal = (p.price || 0) * (p.qty || 1);
-    total += subtotal;
-
     return `
       <div class="card mb-3 p-3 shadow-sm">
         <div class="row align-items-center">
@@ -53,10 +49,10 @@ function renderCart() {
             <img src="${p.img || ''}" alt="${p.brand || ''} ${p.model || ''}" class="img-fluid rounded">
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-5">
             <h5>${p.brand || ''} ${p.model || ''}</h5>
-            <p class="mb-1">Precio: ${formatPrice(p.price)}</p>
-            <strong>Subtotal: ${formatPrice(subtotal)}</strong>
+            ${p.size ? `<p class="mb-1 text-muted"><strong>Medida:</strong> ${p.size}</p>` : ''}
+            ${p.season ? `<p class="mb-1 text-muted"><strong>Temporada:</strong> ${p.season}</p>` : ''}
           </div>
 
           <div class="col-md-3 d-flex align-items-center gap-2">
@@ -69,7 +65,7 @@ function renderCart() {
               onclick="increaseQty(${i})">+</button>
           </div>
 
-          <div class="col-md-3 text-end">
+          <div class="col-md-2 text-end">
             <button class="btn btn-sm btn-danger"
               onclick="removeItem(${i})" aria-label="Eliminar producto">
               <i class="fas fa-trash"></i>
@@ -80,7 +76,11 @@ function renderCart() {
     `;
   }).join("");
 
-  totalEl.textContent = formatPrice(total);
+  if (totalUnitsSpan) {
+    totalUnitsSpan.textContent = totalUnits;
+  } else if (totalEl) {
+    totalEl.textContent = `${totalUnits} unidad${totalUnits === 1 ? '' : 'es'}`;
+  }
 }
 
 function increaseQty(i) {
@@ -114,14 +114,23 @@ function clearCart() {
   renderCart();
 }
 
-function checkout() {
+function checkoutWhatsApp() {
   if (cart.length === 0) {
-    alert("Tu carrito está vacío");
+    alert("Tu carrito está vacío. Agrega neumáticos antes de consultar.");
     return;
   }
 
-  alert("Compra finalizada correctamente 🚀");
-  clearCart();
+  let text = "¡Hola Gomería JLR! 👋\nQuisiera consultar precio y disponibilidad por los siguientes neumáticos:\n\n";
+  
+  cart.forEach(p => {
+    const sizeInfo = p.size ? ` (Medida: ${p.size})` : "";
+    text += `• ${p.brand} ${p.model}${sizeInfo} - Cantidad: ${p.qty} unidad(es)\n`;
+  });
+
+  text += "\n¿Tienen stock y me pueden informar los métodos de pago? ¡Gracias!";
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, "_blank");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -139,6 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const checkoutBtn = document.getElementById("checkoutBtn");
   if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", checkout);
+    checkoutBtn.addEventListener("click", checkoutWhatsApp);
   }
 });
